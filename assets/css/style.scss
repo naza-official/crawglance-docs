@@ -1,7 +1,18 @@
 ---
 ---
 
+/* Fonts: Playfair Display (editorial serif headings) + Inter (body) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap');
+
 @import "{{ site.theme }}";
+
+/* ---- CrawGlance palette (from banner) ---- */
+$cg-cream:  #f6efdf;   // page background
+$cg-beige:  #e7ddc7;   // soft panels / dividers
+$cg-ink:    #1a1712;   // near-black text
+$cg-body:   #3a352d;   // body copy (warm dark grey)
+$cg-gold:   #b08d4e;   // accent
+$cg-gold-d: #8a6a2c;   // darker gold for readable links
 
 /* Hide the theme's page header (Cayman hero + link) */
 .site-header,
@@ -10,12 +21,84 @@ header {
     display: none !important;
 }
 
-/* Content headings: black instead of Cayman's green */
+/* ---- Base ---- */
+body {
+    background-color: $cg-cream;
+    color: $cg-body;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.main-content {
+    padding-top: 3rem;          // breathing room now that the header is gone
+    color: $cg-body;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* ---- Headings: serif, warm ink, a touch bolder ---- */
 .main-content h1,
 .main-content h2,
 .main-content h3,
 .main-content h4,
 .main-content h5,
 .main-content h6 {
-    color: #000 !important;
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    color: $cg-ink !important;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.main-content h1 { font-weight: 700; font-size: 2.6rem; }
+.main-content h2 { font-size: 1.9rem; }
+
+/* ---- Links & accents ---- */
+.main-content a {
+    color: $cg-gold-d;
+    text-decoration: none;
+    border-bottom: 1px solid rgba($cg-gold, 0.35);
+    transition: border-color 0.15s ease, color 0.15s ease;
+}
+.main-content a:hover {
+    color: $cg-ink;
+    border-bottom-color: $cg-gold;
+}
+
+/* ---- Dividers ---- */
+.main-content hr {
+    height: 1px;
+    background: $cg-beige;
+    border: 0;
+    margin: 2.5rem 0;
+}
+
+/* ---- Buttons (early-access form, CTAs) ---- */
+.btn,
+.main-content .btn,
+button[type="submit"] {
+    background-color: $cg-gold !important;
+    background-image: none !important;
+    color: #fff !important;
+    border: 0 !important;
+    border-radius: 8px;
+    padding: 0.6rem 1.3rem;
+    font-weight: 600;
+    transition: background-color 0.15s ease;
+}
+.btn:hover,
+.main-content .btn:hover,
+button[type="submit"]:hover {
+    background-color: $cg-gold-d !important;
+    color: #fff !important;
+}
+
+/* ---- Code / blockquotes tinted to the warm palette ---- */
+.main-content code,
+.main-content pre {
+    background-color: rgba($cg-beige, 0.55);
+    border-radius: 6px;
+}
+.main-content blockquote {
+    color: $cg-body;
+    border-left: 3px solid $cg-gold;
 }
