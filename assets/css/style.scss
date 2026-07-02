@@ -1,14 +1,11 @@
-/*
-Source - https://stackoverflow.com/a/46608687
-Posted by Carl Walsh, modified by community. See post 'Timeline' for change history
-Retrieved 2026-07-02, License - CC BY-SA 3.0
-*/
-
 ---
 ---
 
 @import "{{ site.theme }}";
 
+/* Hide the site header */
+.site-header,
+.page-header,
 header {
-  display: none;
+    display: none;
 }
