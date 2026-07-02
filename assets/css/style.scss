@@ -3,9 +3,9 @@
 
 @import "{{ site.theme }}";
 
-/* Hide the site header */
+/* Hide the theme's page header (Cayman hero + link) */
 .site-header,
 .page-header,
 header {
-    display: none;
+    display: none !important;
 }
